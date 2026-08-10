@@ -1,0 +1,445 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyFlow</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="top-header">
+    <div>
+        <div class="logo">STUDYFLOW</div>
+        <h1 id="todayDate">Today</h1>
+    </div>
+
+    <div class="header-right">
+        <span id="saveStatus">Saved ✓</span>
+        <button id="themeButton">🌙</button>
+    </div>
+</header>
+
+
+<main>
+
+    <!-- TODAY SUMMARY -->
+    <section class="today-card">
+
+        <div>
+            <span id="cycleDay" class="cycle-badge">DAY 1</span>
+
+            <h2>Today's Study Plan</h2>
+
+            <p id="cycleName">Maths Priority</p>
+        </div>
+
+        <div class="score-circle" id="scoreCircle">
+            <div>
+                <strong id="dailyPercentage">0%</strong>
+                <small>today</small>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- QUICK STATS -->
+    <section class="quick-stats">
+
+        <div class="stat-card">
+            <span>STUDIED</span>
+            <strong id="completedHours">0h / 10h</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>STREAK</span>
+            <strong>🔥 <span id="currentStreak">0</span></strong>
+        </div>
+
+        <div class="stat-card">
+            <span>SYLLABUS</span>
+            <strong id="overallSyllabus">0%</strong>
+        </div>
+
+        <div class="stat-card">
+            <span>STATUS</span>
+            <strong id="studyStatus">ON TRACK</strong>
+        </div>
+
+    </section>
+
+
+    <!-- NAVIGATION -->
+    <nav class="navigation">
+
+        <button class="nav-button active" data-page="todayPage">
+            Today
+        </button>
+
+        <button class="nav-button" data-page="syllabusPage">
+            Syllabus
+        </button>
+
+        <button class="nav-button" data-page="historyPage">
+            Calendar
+        </button>
+
+        <button class="nav-button" data-page="progressPage">
+            Progress
+        </button>
+
+        <button class="nav-button" data-page="settingsPage">
+            Settings
+        </button>
+
+    </nav>
+
+
+    <!-- ================= TODAY ================= -->
+
+    <section id="todayPage" class="page active-page">
+
+        <div class="section-heading">
+
+            <div>
+                <span>TODAY'S CHECKLIST</span>
+                <h2>Study by the hour</h2>
+            </div>
+
+            <button id="addTaskButton" class="dark-button">
+                + Add Task
+            </button>
+
+        </div>
+
+        <div id="todayTasks"></div>
+
+    </section>
+
+
+    <!-- ================= SYLLABUS ================= -->
+
+    <section id="syllabusPage" class="page">
+
+        <div class="section-heading">
+
+            <div>
+                <span>YOUR SYLLABUS</span>
+                <h2>Topics & Revision</h2>
+            </div>
+
+        </div>
+
+        <p class="information">
+            Add your real chapters/topics and their marks or weight.
+            Progress is calculated using the chapter weight.
+        </p>
+
+        <div id="subjects"></div>
+
+    </section>
+
+
+    <!-- ================= CALENDAR ================= -->
+
+    <section id="historyPage" class="page">
+
+        <div class="section-heading">
+
+            <div>
+                <span>HABIT TRACKER</span>
+                <h2>Monthly Activity</h2>
+            </div>
+
+        </div>
+
+        <div class="calendar-header">
+            <button id="previousMonth">‹</button>
+            <strong id="calendarMonth">Month</strong>
+            <button id="nextMonth">›</button>
+        </div>
+
+        <div class="week-labels">
+            <span>MON</span>
+            <span>TUE</span>
+            <span>WED</span>
+            <span>THU</span>
+            <span>FRI</span>
+            <span>SAT</span>
+            <span>SUN</span>
+        </div>
+
+        <div id="historyCalendar" class="history-calendar"></div>
+
+        <div class="calendar-legend">
+            <span>0</span>
+            <i class="level-1"></i>
+            <i class="level-2"></i>
+            <i class="level-3"></i>
+            <i class="level-4"></i>
+            <i class="level-5"></i>
+            <span>100%</span>
+        </div>
+
+    </section>
+
+
+    <!-- ================= PROGRESS ================= -->
+
+    <section id="progressPage" class="page">
+
+        <div class="section-heading">
+
+            <div>
+                <span>ACCOUNTABILITY</span>
+                <h2>Your Progress</h2>
+            </div>
+
+        </div>
+
+
+        <!-- SMALL STAT CARDS -->
+
+        <div class="progress-cards">
+
+            <div class="progress-card">
+                <span>WEEKLY</span>
+                <strong id="weeklyCompletion">0%</strong>
+            </div>
+
+            <div class="progress-card">
+                <span>MONTHLY</span>
+                <strong id="monthlyCompletion">0%</strong>
+            </div>
+
+            <div class="progress-card">
+                <span>LONGEST STREAK</span>
+                <strong id="longestStreak">0</strong>
+            </div>
+
+            <div class="progress-card">
+                <span>TOPICS DONE</span>
+                <strong id="completedTopics">0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- SUBJECT PROGRESS -->
+
+        <div class="chart-card">
+
+            <h3>Subject Progress</h3>
+
+            <div id="subjectProgressBars"></div>
+
+        </div>
+
+
+        <!-- PIE -->
+
+        <div class="chart-card pie-card">
+
+            <h3>Syllabus Progress</h3>
+
+            <canvas id="syllabusPieChart"></canvas>
+
+        </div>
+
+
+        <!-- PLANNED VS ACTUAL -->
+
+        <div class="chart-card">
+
+            <h3>Planned vs Actual</h3>
+
+            <p class="chart-description">
+                Your actual syllabus progress compared with the planned target.
+            </p>
+
+            <canvas id="plannedActualChart"></canvas>
+
+            <div id="scheduleStatus"></div>
+
+        </div>
+
+
+        <!-- CONSISTENCY -->
+
+        <div class="chart-card">
+
+            <h3>Consistency & Hard Work</h3>
+
+            <p class="chart-description">
+                Daily study completion. Target = 100%.
+            </p>
+
+            <canvas id="consistencyChart"></canvas>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SETTINGS ================= -->
+
+    <section id="settingsPage" class="page">
+
+        <div class="section-heading">
+
+            <div>
+                <span>SETTINGS</span>
+                <h2>Personal Setup</h2>
+            </div>
+
+        </div>
+
+        <div class="settings-card">
+
+            <label>
+                Cycle Start Date
+
+                <input
+                    type="date"
+                    id="cycleStartDate">
+            </label>
+
+
+            <label>
+                Daily Study Goal
+
+                <input
+                    type="number"
+                    id="dailyGoal"
+                    min="1"
+                    max="24"
+                    step="0.5">
+            </label>
+
+
+            <label>
+                Successful Day Threshold
+
+                <input
+                    type="number"
+                    id="streakThreshold"
+                    min="1"
+                    max="100">
+            </label>
+
+
+            <div class="settings-buttons">
+
+                <button
+                    id="saveSettings"
+                    class="dark-button">
+                    Save Settings
+                </button>
+
+                <button
+                    id="resetData"
+                    class="danger-button">
+                    Reset All Data
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= ADD TASK DIALOG ================= -->
+
+<dialog id="taskDialog">
+
+    <form id="taskForm">
+
+        <h2>Add Study Task</h2>
+
+        <label>
+            Subject
+
+            <select id="taskSubject">
+                <option>Accounts</option>
+                <option>Maths</option>
+                <option>Law</option>
+                <option>Economics</option>
+            </select>
+        </label>
+
+
+        <label>
+            Topic
+
+            <input
+                id="taskTopic"
+                type="text"
+                placeholder="Example: Contract Act — Offer"
+                required>
+        </label>
+
+
+        <label>
+            Start Time
+
+            <input
+                id="taskStart"
+                type="time"
+                required>
+        </label>
+
+
+        <label>
+            End Time
+
+            <input
+                id="taskEnd"
+                type="time"
+                required>
+        </label>
+
+
+        <label>
+            Task Type
+
+            <select id="taskType">
+                <option>Study</option>
+                <option>Practice</option>
+                <option>Revision</option>
+            </select>
+        </label>
+
+
+        <div class="dialog-buttons">
+
+            <button
+                type="button"
+                id="cancelTask"
+                class="light-button">
+                Cancel
+            </button>
+
+            <button
+                type="submit"
+                class="dark-button">
+                Add Task
+            </button>
+
+        </div>
+
+    </form>
+
+</dialog>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```

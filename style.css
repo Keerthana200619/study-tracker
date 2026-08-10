@@ -1,0 +1,1558 @@
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #f5f6f8;
+
+    color: #15171b;
+
+    min-height: 100vh;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.top-header {
+
+    height: 75px;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.logo {
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    color: #777;
+
+}
+
+
+.top-header h1 {
+
+    font-size: 20px;
+
+    margin-top: 4px;
+
+}
+
+
+.header-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+
+#saveStatus {
+
+    font-size: 10px;
+
+    color: #777;
+
+}
+
+
+#themeButton {
+
+    width: 38px;
+
+    height: 38px;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    background: white;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+main {
+
+    width: min(1000px, 100%);
+
+    margin: auto;
+
+    padding: 20px;
+
+}
+
+
+/* =========================================
+   TODAY HERO
+========================================= */
+
+.today-card {
+
+    background: #111827;
+
+    color: white;
+
+    border-radius: 22px;
+
+    padding: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.cycle-badge {
+
+    display: inline-block;
+
+    background: #293548;
+
+    padding: 7px 11px;
+
+    border-radius: 30px;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+.today-card h2 {
+
+    font-size: 27px;
+
+    margin-top: 10px;
+
+}
+
+
+.today-card p {
+
+    color: #cbd5e1;
+
+    font-size: 11px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================
+   SCORE CIRCLE
+========================================= */
+
+.score-circle {
+
+    --progress: 0%;
+
+    width: 105px;
+
+    height: 105px;
+
+    border-radius: 50%;
+
+    background:
+
+        conic-gradient(
+            white var(--progress),
+            #374151 0
+        );
+
+    display: grid;
+
+    place-items: center;
+
+    position: relative;
+
+}
+
+
+.score-circle::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 78px;
+
+    height: 78px;
+
+    border-radius: 50%;
+
+    background: #111827;
+
+}
+
+
+.score-circle div {
+
+    position: relative;
+
+    z-index: 2;
+
+    text-align: center;
+
+}
+
+
+.score-circle strong {
+
+    display: block;
+
+    font-size: 21px;
+
+}
+
+
+.score-circle small {
+
+    font-size: 8px;
+
+    color: #cbd5e1;
+
+}
+
+
+/* =========================================
+   QUICK STATS
+========================================= */
+
+.quick-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin: 12px 0;
+
+}
+
+
+.stat-card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+}
+
+
+.stat-card span {
+
+    display: block;
+
+    color: #858b95;
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+}
+
+
+.stat-card strong {
+
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 19px;
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigation {
+
+    background: #e9ebee;
+
+    padding: 4px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    gap: 4px;
+
+    margin: 15px 0;
+
+}
+
+
+.nav-button {
+
+    border: none;
+
+    background: transparent;
+
+    padding: 10px 15px;
+
+    border-radius: 9px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    color: #737985;
+
+    cursor: pointer;
+
+}
+
+
+.nav-button.active {
+
+    background: white;
+
+    color: #111827;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.06);
+
+}
+
+
+/* =========================================
+   PAGES
+========================================= */
+
+.page {
+
+    display: none;
+
+}
+
+
+.active-page {
+
+    display: block;
+
+}
+
+
+/* =========================================
+   SECTION TITLE
+========================================= */
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin: 20px 0 13px;
+
+}
+
+
+.section-heading span {
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    color: #8b9099;
+
+}
+
+
+.section-heading h2 {
+
+    font-size: 22px;
+
+    margin-top: 4px;
+
+}
+
+
+.information {
+
+    font-size: 11px;
+
+    line-height: 1.6;
+
+    color: #69707b;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.dark-button {
+
+    border: none;
+
+    background: #111827;
+
+    color: white;
+
+    border-radius: 9px;
+
+    padding: 10px 14px;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+}
+
+
+.light-button {
+
+    border: none;
+
+    background: #eef0f3;
+
+    color: #333;
+
+    border-radius: 9px;
+
+    padding: 10px 14px;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+}
+
+
+.danger-button {
+
+    border: none;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    border-radius: 9px;
+
+    padding: 10px 14px;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   DAILY TASK
+========================================= */
+
+.study-task {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    margin: 8px 0;
+
+    transition: .2s;
+
+}
+
+
+.study-task:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,.05);
+
+}
+
+
+/* CHECKBOX */
+
+.task-checkbox {
+
+    width: 26px;
+
+    height: 26px;
+
+    border: 2px solid #cbd0d7;
+
+    border-radius: 8px;
+
+    background: white;
+
+    display: grid;
+
+    place-items: center;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    font-weight: 900;
+
+}
+
+
+.task-checkbox.completed {
+
+    background: #111827;
+
+    border-color: #111827;
+
+    color: white;
+
+}
+
+
+/* TASK INFORMATION */
+
+.task-information {
+
+    flex: 1;
+
+}
+
+
+.task-information strong {
+
+    display: block;
+
+    font-size: 13px;
+
+}
+
+
+.task-information small {
+
+    display: block;
+
+    color: #7b818b;
+
+    font-size: 10px;
+
+    margin-top: 4px;
+
+}
+
+
+.task-type {
+
+    background: #f0f1f3;
+
+    color: #626975;
+
+    padding: 5px 8px;
+
+    border-radius: 20px;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+}
+
+
+/* COMPLETED TASK */
+
+.study-task.completed
+.task-information {
+
+    opacity: .45;
+
+    text-decoration: line-through;
+
+}
+
+
+/* BREAK */
+
+.study-break {
+
+    text-align: center;
+
+    padding: 13px;
+
+    color: #8a9099;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+/* =========================================
+   SUBJECT CARDS
+========================================= */
+
+.subject-card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 17px;
+
+    margin: 10px 0;
+
+}
+
+
+.subject-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+}
+
+
+.subject-header h3 {
+
+    font-size: 15px;
+
+}
+
+
+.subject-percentage {
+
+    font-size: 13px;
+
+    font-weight: 900;
+
+}
+
+
+/* =========================================
+   TOPIC
+========================================= */
+
+.topic-row {
+
+    display: grid;
+
+    grid-template-columns:
+        27px
+        1fr
+        70px
+        110px
+        25px;
+
+    gap: 7px;
+
+    align-items: center;
+
+    border-top: 1px solid #edf0f2;
+
+    padding: 10px 0;
+
+}
+
+
+.topic-row input,
+.topic-row select {
+
+    border: 1px solid #e1e4e8;
+
+    border-radius: 8px;
+
+    padding: 8px;
+
+    font-size: 10px;
+
+    background: white;
+
+}
+
+
+.topic-row input[type="checkbox"] {
+
+    width: 18px;
+
+    height: 18px;
+
+    accent-color: #111827;
+
+}
+
+
+.delete-topic {
+
+    border: none;
+
+    background: transparent;
+
+    color: #999;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+}
+
+
+/* ADD TOPIC */
+
+.add-topic {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        80px
+        70px;
+
+    gap: 7px;
+
+    margin-top: 10px;
+
+}
+
+
+.add-topic input {
+
+    border: 1px solid #e1e4e8;
+
+    border-radius: 8px;
+
+    padding: 9px;
+
+    font-size: 10px;
+
+}
+
+
+.add-topic button {
+
+    border: none;
+
+    background: #111827;
+
+    color: white;
+
+    border-radius: 8px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   HISTORY
+========================================= */
+
+.history-calendar {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+    gap: 5px;
+
+}
+
+
+.history-day {
+
+    aspect-ratio: 1;
+
+    border: 1px solid #e5e7eb;
+
+    background: white;
+
+    border-radius: 9px;
+
+    padding: 6px;
+
+    cursor: pointer;
+
+}
+
+
+.history-day strong {
+
+    font-size: 9px;
+
+}
+
+
+.history-day small {
+
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 8px;
+
+}
+
+
+/* LEVELS */
+
+.history-day.level-0 {
+
+    background: #f0f2f4;
+
+}
+
+
+.history-day.level-1 {
+
+    background: #e4f7eb;
+
+}
+
+
+.history-day.level-2 {
+
+    background: #b8ebca;
+
+}
+
+
+.history-day.level-3 {
+
+    background: #6ed497;
+
+}
+
+
+.history-day.level-4 {
+
+    background: #2dbb68;
+
+    color: white;
+
+}
+
+
+.history-day.level-5 {
+
+    background: #158448;
+
+    color: white;
+
+}
+
+
+/* =========================================
+   PROGRESS CARDS
+========================================= */
+
+.progress-cards {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+}
+
+
+.progress-card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 15px;
+
+    padding: 15px;
+
+}
+
+
+.progress-card span {
+
+    display: block;
+
+    color: #777;
+
+    font-size: 9px;
+
+}
+
+
+.progress-card strong {
+
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 22px;
+
+}
+
+
+.chart-card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 18px;
+
+    margin-top: 12px;
+
+}
+
+
+.chart-card h3 {
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+
+}
+
+
+#consistencyChart {
+
+    width: 100%;
+
+    height: 260px;
+
+}
+
+
+/* =========================================
+   SETTINGS
+========================================= */
+
+.settings-card {
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 18px;
+
+    max-width: 600px;
+
+    display: grid;
+
+    gap: 15px;
+
+}
+
+
+.settings-card label {
+
+    display: grid;
+
+    gap: 6px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+}
+
+
+.settings-card input {
+
+    border: 1px solid #e1e4e8;
+
+    border-radius: 8px;
+
+    padding: 10px;
+
+    font-size: 11px;
+
+}
+
+
+.settings-buttons {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+/* =========================================
+   DIALOG
+========================================= */
+
+dialog {
+
+    border: none;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    width: min(420px, 90vw);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.25);
+
+}
+
+
+dialog::backdrop {
+
+    background: rgba(17,24,39,.65);
+
+}
+
+
+dialog form {
+
+    display: grid;
+
+    gap: 12px;
+
+}
+
+
+dialog h2 {
+
+    font-size: 18px;
+
+}
+
+
+dialog label {
+
+    display: grid;
+
+    gap: 5px;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+}
+
+
+dialog input,
+dialog select {
+
+    padding: 9px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 8px;
+
+    font-size: 11px;
+
+}
+
+
+.dialog-buttons {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 5px;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .top-header {
+
+        padding: 0 16px;
+
+    }
+
+
+    main {
+
+        padding: 12px;
+
+    }
+
+
+    .today-card {
+
+        padding: 19px;
+
+    }
+
+
+    .today-card h2 {
+
+        font-size: 22px;
+
+    }
+
+
+    .score-circle {
+
+        width: 88px;
+
+        height: 88px;
+
+    }
+
+
+    .score-circle::after {
+
+        width: 65px;
+
+        height: 65px;
+
+    }
+
+
+    .quick-stats {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .navigation {
+
+        overflow-x: auto;
+
+    }
+
+
+    .nav-button {
+
+        white-space: nowrap;
+
+    }
+
+
+    .task-type {
+
+        display: none;
+
+    }
+
+
+    .topic-row {
+
+        grid-template-columns:
+            25px
+            1fr
+            25px;
+
+    }
+
+
+    .topic-row input:nth-of-type(2),
+    .topic-row select {
+
+        grid-column: 2;
+
+    }
+
+
+    .add-topic {
+
+        grid-template-columns:
+            1fr
+            70px;
+
+    }
+
+
+    .add-topic input:nth-child(2) {
+
+        grid-column: 1;
+
+    }
+
+
+    .add-topic button {
+
+        grid-column: 2;
+
+    }
+
+
+    .progress-cards {
+
+        grid-template-columns:
+            1fr 1fr;
+
+    }
+
+
+    .history-calendar {
+
+        gap: 3px;
+
+    }
+
+}
+
+
+/* =========================================
+   DARK MODE
+========================================= */
+
+body.dark {
+
+    background: #080b10;
+
+    color: #f8fafc;
+
+}
+
+
+body.dark .top-header,
+body.dark .stat-card,
+body.dark .study-task,
+body.dark .subject-card,
+body.dark .progress-card,
+body.dark .chart-card,
+body.dark .settings-card {
+
+    background: #111722;
+
+    border-color: #252d39;
+
+    color: white;
+
+}
+
+
+body.dark .navigation {
+
+    background: #151b25;
+
+}
+
+
+body.dark .nav-button {
+
+    color: #9aa3b1;
+
+}
+
+
+body.dark .nav-button.active {
+
+    background: #222a36;
+
+    color: white;
+
+}
+
+
+body.dark .topic-row {
+
+    border-color: #252d39;
+
+}
+
+
+body.dark .topic-row input,
+body.dark .topic-row select,
+body.dark .settings-card input {
+
+    background: #111722;
+
+    color: white;
+
+    border-color: #303846;
+
+}
+
+
+body.dark #themeButton {
+
+    background: #111722;
+
+    color: white;
+
+}
+
+
+body.dark .history-day {
+
+    border-color: #252d39;
+
+    background: #111722;
+
+}
+
+
+body.dark dialog {
+
+    background: #111722;
+
+    color: white;
+
+}
+/* =========================================
+   CHARTS
+========================================= */
+
+.chart-description {
+
+    color: #777;
+
+    font-size: 10px;
+
+    line-height: 1.5;
+
+    margin-bottom: 12px;
+
+}
+
+
+.chart-card canvas {
+    display: block;
+    width: 100% !important;
+    height: 280px !important;
+    min-height: 280px;
+}
+
+
+.chart-small {
+
+    max-width: 520px;
+
+}
+
+
+/* =========================================
+   SUBJECT PROGRESS BARS
+========================================= */
+
+.subject-progress-item {
+
+    margin: 15px 0;
+
+}
+
+
+.subject-progress-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 7px;
+
+}
+
+
+.subject-progress-header strong {
+
+    font-size: 11px;
+
+}
+
+
+.subject-progress-header span {
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+}
+
+
+.subject-progress-track {
+
+    width: 100%;
+
+    height: 8px;
+
+    background: #edf0f2;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+}
+
+
+.subject-progress-fill {
+
+    height: 100%;
+
+    background: #111827;
+
+    border-radius: 20px;
+
+    transition: width .4s ease;
+
+}
+
+
+/* =========================================
+   STATUS
+========================================= */
+
+#scheduleStatus {
+
+    margin-top: 12px;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    background: #f1f3f5;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    text-align: center;
+
+}
+
+
+.status-ahead {
+
+    background: #dcfce7 !important;
+
+    color: #166534;
+
+}
+
+
+.status-track {
+
+    background: #fef3c7 !important;
+
+    color: #92400e;
+
+}
+
+
+.status-behind {
+
+    background: #fee2e2 !important;
+
+    color: #991b1b;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .chart-card {
+
+        padding: 14px;
+
+    }
+
+    .chart-card canvas {
+
+        max-height: 240px;
+
+    }
+
+}
